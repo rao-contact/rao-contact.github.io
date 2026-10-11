@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scorpio S5 Booking</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101114;color:white}
+header{text-align:center;padding:24px 15px;background:#191b20}
+header h1{margin:0;color:#ffb000;font-size:29px}
+header p{color:#ddd}
+.car{width:100%;height:220px;object-fit:cover}
+.container{max-width:480px;margin:auto;padding:20px}
+h2{color:#ffb000;text-align:center}
+label{display:block;margin-top:14px;margin-bottom:6px}
+input,button{width:100%;padding:13px;border-radius:8px;font-size:16px}
+input{border:1px solid #555;background:#22242a;color:white}
+button{margin-top:22px;background:#20c763;color:white;border:0;font-weight:bold}
+.note{text-align:center;color:#bbb;font-size:13px;margin-top:18px}
+</style>
+</head>
+<body>
+<header>
+<h1>SCORPIO S5</h1>
+<p>Book Your Ride 🚘</p>
+</header><img class="car"
+src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=80"
+alt="SUV">
+
+<div class="container">
+<h2>Book Your Car</h2><form id="bookingForm">
+<label>Your Name</label>
+<input id="name" type="text" placeholder="Enter your name" required><label>Mobile Number</label>
+<input id="mobile" type="tel" placeholder="Your mobile number" required>
+
+<label>Pickup Location</label>
+<input id="pickup" type="text" placeholder="Where should we pick you up?" required>
+
+<label>Destination</label>
+<input id="destination" type="text" placeholder="Where do you want to go?" required>
+
+<label>Journey Date</label>
+<input id="date" type="date" required>
+
+<label>Pickup Time</label>
+<input id="time" type="time" required>
+
+<label>Passengers</label>
+<input id="passengers" type="number" min="1" max="7" value="1" required>
+
+<button type="submit">BOOK NOW ON WHATSAPP</button>
+
+</form><p class="note">Your booking will be sent through WhatsApp. Your ride is confirmed only after we contact you.</p>
+</div><script>
+document.getElementById("date").min =
+new Date().toLocaleDateString("en-CA");
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+const name=document.getElementById("name").value.trim();
+const mobile=document.getElementById("mobile").value.trim();
+const pickup=document.getElementById("pickup").value.trim();
+const destination=document.getElementById("destination").value.trim();
+const date=document.getElementById("date").value;
+const time=document.getElementById("time").value;
+const passengers=document.getElementById("passengers").value;
+
+const message=
+"🚘 NEW SCORPIO BOOKING%0A%0A"+
+"👤 Name: "+encodeURIComponent(name)+"%0A"+
+"📱 Customer Mobile: "+encodeURIComponent(mobile)+"%0A"+
+"📍 Pickup: "+encodeURIComponent(pickup)+"%0A"+
+"🏁 Destination: "+encodeURIComponent(destination)+"%0A"+
+"📅 Date: "+encodeURIComponent(date)+"%0A"+
+"🕒 Time: "+encodeURIComponent(time)+"%0A"+
+"👥 Passengers: "+encodeURIComponent(passengers);
+
+window.location.href="https://wa.me/919263400890?text="+message;
+});
+</script></body>
+</html>
